@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--简化注入-->
+    <bean class="com.jump.zhu.pojo.UserBean" id="bean" c:_0="1" c:_1="jump1"/>
+    <bean class="com.jump.zhu.pojo.UserBean" id="bean2" c:id="2" c:name="jump2"/>
+    <bean class="com.jump.zhu.pojo.UserBean" id="bean3" p:id="3" p:name="jump3"/>
+</beans>

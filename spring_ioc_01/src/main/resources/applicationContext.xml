@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="userBean" class="com.jump.zhu.pojo.UserBean"/>
+    <!--  id属性表示 名字为 user1,user2,user3   id唯一       name属性表示名字为  u1或u2或u3  会根据  逗号 分号 空格  分割 -->
+    <bean id="user1,user2,user3" name="u1,u2,u3" class="com.jump.zhu.pojo.UserBean" primary="true"/>
+    <!--  可根据 id name 类型 三种方式 来获取bean   primary="true"表示多个形同的bean是优先被获取-->
+
+    <!-- 静态工厂   直接获取对象-->
+    <bean name="user" class="com.jump.zhu.factory.StaticFactoryDemo" factory-method="getInstance"/>
+
+    <!-- 动态工厂 -->
+    <bean id="dynamicFactoryDemo" class="com.jump.zhu.factory.DynamicFactoryDemo"/>
+    <!-- 从工厂中获取对象 -->
+    <bean id="user9" factory-bean="dynamicFactoryDemo" factory-method="getInstance"/>
+
+    <!--注入-->
+    <bean class="com.jump.zhu.pojo.UserBean" name="bean">
+        <constructor-arg name="id" value="1"/>
+        <constructor-arg name="name" value="jump1"/>
+    </bean>
+
+    <bean class="com.jump.zhu.pojo.UserBean" name="bean2">
+        <constructor-arg index="0" value="2"/>
+        <constructor-arg index="1" value="jump2"/>
+    </bean>
+
+    <bean class="com.jump.zhu.pojo.UserBean" name="bean3">
+        <property name="id" value="3"/>
+        <property name="name" value="jump3"/>
+    </bean>
+
+</beans>
